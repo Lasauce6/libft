@@ -6,7 +6,7 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 20:30:43 by rbaticle          #+#    #+#             */
-/*   Updated: 2024/09/26 23:42:46 by rbaticle         ###   ########.fr       */
+/*   Updated: 2024/09/28 00:16:31 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,36 +57,38 @@ char	*ft_strndup(const char *src, size_t n)
 	dst = malloc(n + 1);
 	if (!dst)
 		return (0);
-	i = -1;
-	while (src[++i] && i < n)
+	i = 0;
+	while (src[i] && i < n)
+	{
 		dst[i] = src[i];
+		i++;
+	}
 	dst[i] = '\0';
 	return (dst);
 }
 
-int	fill_res(char ***res, char const *s, char c)
+int	fill_res(char ***res, char const *s, char c, size_t *j)
 {
 	size_t	i;
-	size_t	j;
 
 	i = 0;
-	j = 0;
 	while (s[i])
 	{
 		if (s[i] == c)
 			i++;
 		else
 		{
-			(*res)[j] = strndup(s + i, len_word(s, c, i));
-			if (!(*res)[j])
+			(*res)[*j] = strndup(s + i, len_word(s, c, i));
+			if (!(*res)[*j])
 			{
-				while (j-- >= 0)
-					free(*res[j]);
+				while ((*j)-- != 0)
+					free(*res[*j]);
+				free(*res[0]);
 				free(*res);
 				return (0);
 			}
 			i += len_word(s, c, i);
-			j++;
+			(*j)++;
 		}
 	}
 	return (1);
@@ -95,17 +97,15 @@ int	fill_res(char ***res, char const *s, char c)
 char	**ft_split(char const *s, char c)
 {
 	char	**res;
-	size_t	i;
 	size_t	j;
 
 	res = malloc(sizeof(char *) * (get_words(s, c) + 1));
 	if (!res)
 		return (0);
-	i = 0;
 	j = 0;
 	if (s)
 	{
-		if (!fill_res(&res, s, c))
+		if (!fill_res(&res, s, c, &j))
 			return (0);
 	}
 	res[j] = 0;

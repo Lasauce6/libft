@@ -6,7 +6,7 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 15:45:20 by rbaticle          #+#    #+#             */
-/*   Updated: 2024/09/26 18:16:46 by rbaticle         ###   ########.fr       */
+/*   Updated: 2024/09/28 00:01:51 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,14 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	pos;
 	char	*str;
 
+	if (!s1)
+		return (str);
 	pos = 0;
 	while (in_str(s1[pos], set))
 		pos++;
-	len = ft_strlen(s1 + pos);
+	len = ft_strlen(&s1[pos]);
 	i = 0;
-	while (in_str(s1[len - i - 1], set))
+	while (s1[pos] && in_str((s1 + pos)[len - i - 1], set))
 		i++;
 	len -= i;
 	str = malloc(len + 1);

@@ -6,7 +6,7 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:10:04 by rbaticle          #+#    #+#             */
-/*   Updated: 2024/09/25 19:09:23 by rbaticle         ###   ########.fr       */
+/*   Updated: 2024/09/27 21:51:53 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,12 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	len_src = ft_strlen(src);
 	if (dstsize <= len_dst)
 		return (len_src + dstsize);
-	i = -1;
-	while (src[i] && len_dst + ++i < dstsize - 1)
+	i = 0;
+	while (src[i] && len_dst + i < dstsize - 1)
+	{
 		dst[len_dst + i] = src[i];
+		i++;
+	}
 	dst[len_dst + i] = '\0';
 	return (len_dst + len_src);
 }
