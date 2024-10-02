@@ -6,13 +6,13 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 15:45:20 by rbaticle          #+#    #+#             */
-/*   Updated: 2024/09/28 00:01:51 by rbaticle         ###   ########.fr       */
+/*   Updated: 2024/10/02 16:00:25 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	in_str(char c, const char *str)
+static int	in_str(char c, const char *str)
 {
 	size_t	i;
 

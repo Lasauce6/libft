@@ -6,13 +6,13 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 22:44:33 by rbaticle          #+#    #+#             */
-/*   Updated: 2024/09/26 23:25:19 by rbaticle         ###   ########.fr       */
+/*   Updated: 2024/10/02 15:59:27 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	get_nb_len(int n)
+static size_t	get_nb_len(int n)
 {
 	long	nb;
 	size_t	len;

@@ -6,13 +6,13 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 15:18:49 by rbaticle          #+#    #+#             */
-/*   Updated: 2024/09/28 00:05:36 by rbaticle         ###   ########.fr       */
+/*   Updated: 2024/10/02 16:00:36 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*set_null_malloc(void)
+static char	*set_null_malloc(void)
 {
 	char	*str;
 

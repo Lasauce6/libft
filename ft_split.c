@@ -6,13 +6,13 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 20:30:43 by rbaticle          #+#    #+#             */
-/*   Updated: 2024/09/28 00:16:31 by rbaticle         ###   ########.fr       */
+/*   Updated: 2024/10/02 16:00:05 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	get_words(const char *s, char c)
+static size_t	get_words(const char *s, char c)
 {
 	size_t	i;
 	size_t	count;
@@ -36,7 +36,7 @@ size_t	get_words(const char *s, char c)
 	return (count);
 }
 
-size_t	len_word(const char *s, char c, size_t pos)
+static size_t	len_word(const char *s, char c, size_t pos)
 {
 	size_t	i;
 
@@ -49,7 +49,7 @@ size_t	len_word(const char *s, char c, size_t pos)
 	return (i);
 }
 
-char	*ft_strndup(const char *src, size_t n)
+static char	*ft_strndup(const char *src, size_t n)
 {
 	size_t	i;
 	char	*dst;
@@ -67,7 +67,7 @@ char	*ft_strndup(const char *src, size_t n)
 	return (dst);
 }
 
-int	fill_res(char ***res, char const *s, char c, size_t *j)
+static int	fill_res(char ***res, char const *s, char c, size_t *j)
 {
 	size_t	i;
 
