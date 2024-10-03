@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 
 UTILS = utils/check.c
 
@@ -15,17 +15,36 @@ TESTS = isalpha isdigit isalnum isascii \
 		strmapi striteri putchar_fd \
 		putstr_fd putendl_fd putnbr_fd
 
+BONUS = lstnew lstadd_front lstsize \
+		lstlast lstadd_back lstdelone \
+		lstclear lstiter lstmap
+
+UNAME = $(shell uname -s)
+ifeq ($(UNAME), Linux)
+	VALGRIND = valgrind -q --leak-check=full
+endif
+
 t: $(TESTS)
 
+b: $(BONUS)
+
+a: t b
+
 $(TESTS): %: start
-	@$(CC) $(CFLAGS) $(UTILS) $(TESTS_DIR)test_$*.c -L../ -lft && ./a.out && rm -f a.out
+	@$(CC) $(CFLAGS) $(UTILS) $(TESTS_DIR)test_$*.c -L../ -lft && $(VALGRIND) ./a.out && rm -fr a.out*
+
+$(BONUS): %: start_bonus
+	@$(CC) $(CFLAGS) $(UTILS) $(TESTS_DIR)test_$*.c -L../ -lft && $(VALGRIND) ./a.out && rm -fr a.out*
 
 start: 
 	make -C ../ && make clean -C ../
+
+start_bonus:
+	make bonus -C ../
 
 clean:
 	make -C ../ fclean
 
 fclean: clean
 
-.PHONY: start t clean fclean
+.PHONY: start start_bonus t b a clean fclean
