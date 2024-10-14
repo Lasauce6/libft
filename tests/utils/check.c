@@ -36,4 +36,5 @@ void	mcheck(void *p, size_t req_size)
 		printf("MKO ");
 		printf("\033[0m");
 	}
+	free(p2);
 }
