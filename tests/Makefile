@@ -37,7 +37,7 @@ $(BONUS): %: start_bonus
 	@$(CC) $(CFLAGS) $(UTILS) $(TESTS_DIR)test_$*.c -L../ -lft && $(VALGRIND) ./a.out && rm -fr a.out*
 
 start: 
-	make -C ../ && make clean -C ../
+	make -C ../
 
 start_bonus:
 	make bonus -C ../
