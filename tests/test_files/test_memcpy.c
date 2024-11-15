@@ -14,7 +14,9 @@ int	main(void)
 	ft_memcpy(dest, src, 2);
 	int	i = 0;
 	while (i < 100 && dest[i] == 0)
+	{
 		i++;
+	}
 	/* 3 */ check(i == 2 && dest[2] == 'A');
 	printf("\n");
 }

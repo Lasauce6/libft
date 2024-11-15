@@ -11,7 +11,9 @@ int	main(void)
 	ft_memset(tab, 'A', 42);
 	int	i = 0;
 	while (i < 100 && tab[i] == 'A')
+	{
 		i++;
+	}
 	/* 2 */ check(i == 42 && tab[42] == 0);
 	printf("\n");
 }
