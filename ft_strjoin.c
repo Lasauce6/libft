@@ -6,7 +6,7 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 15:34:37 by rbaticle          #+#    #+#             */
-/*   Updated: 2024/09/26 23:05:38 by rbaticle         ###   ########.fr       */
+/*   Updated: 2024/12/19 16:19:19 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,17 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (0);
 	c = 0;
 	i = 0;
-	while (s1[i])
-		str[c++] = s1[i++];
+	if (s1)
+	{
+		while (s1[i])
+			str[c++] = s1[i++];
+	}
 	i = 0;
-	while (s2[i])
-		str[c++] = s2[i++];
+	if (s2)
+	{
+		while (s2[i])
+			str[c++] = s2[i++];
+	}
 	str[c] = '\0';
 	return (str);
 }

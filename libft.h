@@ -6,7 +6,7 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 14:54:13 by rbaticle          #+#    #+#             */
-/*   Updated: 2024/10/03 10:32:59 by rbaticle         ###   ########.fr       */
+/*   Updated: 2024/12/19 16:22:56 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,11 @@ void	ft_lstdelone(t_list *lst, void (*del) (void *));
 void	ft_lstclear(t_list **lst, void (*del) (void *));
 void	ft_lstiter(t_list *lst, void (*f) (void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f) (void *), void (*del) (void *));
+
+// get next line
+char	*get_next_line(int fd);
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 100
+# endif
 
 #endif
