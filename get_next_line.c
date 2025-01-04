@@ -6,11 +6,11 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 21:00:50 by rbaticle          #+#    #+#             */
-/*   Updated: 2024/11/20 09:47:17 by rbaticle         ###   ########.fr       */
+/*   Updated: 2025/01/04 20:23:11 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 char	*get_line(char *str)
 {
